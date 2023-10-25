@@ -1,7 +1,8 @@
 import Sequelize from 'sequelize';
 
+
 // Conexión con la base de datos
-const sequelize = new Sequelize ('cartrack', 'root', '', {
+const sequelize = new Sequelize ('cartrack', 'root', '123456789', {
     host: 'localhost',
     dialect: 'mysql',
     port: 3306,

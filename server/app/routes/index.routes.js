@@ -190,11 +190,26 @@ router.post(`/clients/report/add/:identificationNumber`, upload.single('report')
 
 router.get('/sales', SaleController.getSales);
 
+// Obtain all sales by sellerID
+
+router.get('/sales/seller/:sellerID', SaleController.getSalesBySeller);
+
+// Obtain the sum of sales by seller
+
+router.get('/sales/sum', SaleController.calculateSalesBySellerHandler);
+
+// Obtain all sales by sellerID
+
+router.get('/sales/total/:sellerID', SaleController.getSalesTotalBySeller);
+
+
 
 // CREATE
 
 // Create a new sale
 router.post('/sales/add', SaleController.createSale);
+
+
 
 
 

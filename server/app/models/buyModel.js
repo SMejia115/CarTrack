@@ -1,8 +1,10 @@
 import { DataTypes }  from 'sequelize';
 import sequelize from '../../config/db/dbconection.js';
 import Car from './carModel.js';
-import User from './userModel.js';
 import Client from './clientModel.js';
+import User from './userModel.js';
+
+
 
 // CREATE TABLE buy(
 // 	buyID INT AUTO_INCREMENT,

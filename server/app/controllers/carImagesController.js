@@ -52,7 +52,7 @@ export const createCarImageByLicensePlate =  async (req, res) => {
     const  imageFile  = req.file;
 
     if (!imageFile) {
-      return res.status(400).json({message: 'No image file provided ' + imageFile});
+      return res.status(400).json({ message: 'Error: No image file provided or ' + error.message });;
     }
 
     const tempFilePath = `./uploads/${imageFile.originalname}`;

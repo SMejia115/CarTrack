@@ -2,6 +2,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../../config/db/dbconection.js';
 import Client from './clientModel.js';
 
+
 // CREATE TABLE Car(
 // 	carID INT AUTO_INCREMENT,
 //     brand VARCHAR(30) NOT NULL,
@@ -46,6 +47,7 @@ const Car = sequelize.define('Car', {
   status: {type: DataTypes.ENUM('available', 'sold'), allowNull: false}
 }, {timestamps: false,
     tableName: 'car'});
+
 
 export default Car;
 

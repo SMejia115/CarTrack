@@ -13,7 +13,7 @@ sequelize.authenticate()
         console.log("CONEXIÓN CON LA DB OK");
     })
     .catch(err => {
-        console.log("El error en la conexión es: ", +err);
+        console.log("El error en la conexión es: ", err);
     });
 
 export default sequelize;

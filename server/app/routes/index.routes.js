@@ -5,6 +5,7 @@ import * as clientController from '../controllers/clientController.js';
 import * as carController from '../controllers/carController.js';
 import * as carImagesController from '../controllers/carImagesController.js';
 import * as clientReportsController from '../controllers/clientReportsController.js';
+import * as SaleController from '../controllers/saleController.js';
 import multer from 'multer';
 
 // Multer config
@@ -130,6 +131,9 @@ router.get('/available/cars', carController.getAvailableCars);
 // Obtain available cars with her images
 router.get('/available/cars/images', carController.getAvailableCarsWithImages);
 
+// Obtain car by ID with her images
+router.get('/car/images/:carID', carController.getCarsWithImagesbyID);
+
 // POST
 
 // Create a new car
@@ -149,8 +153,8 @@ router.post('/image/add/:carID', upload.single('image'), carImagesController.cre
 
 // Obtain all car images
 
-router.get('/images', carImagesController.getCarImages );
-
+router.get('/images', carImagesController.getCarImages);
+ 
 
 // --------------------- C L I E N T   R E P O R T S --------------------- //
 
@@ -164,3 +168,20 @@ router.get('/reports', clientReportsController.getClientReports);
 // Create a new client report
 
 router.post(`/clients/report/add/:identificationNumber`, upload.single('report'), clientReportsController.createClientReport);
+
+// --------------------- S A L E S --------------------- //
+
+// GET
+
+// Obtain all sales
+
+router.get('/sales', SaleController.getSales);
+
+
+// CREATE
+
+// Create a new sale
+router.post('/sales/add', SaleController.createSale);
+
+
+

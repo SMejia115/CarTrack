@@ -67,7 +67,7 @@ export const getBuyByBuyerID = async (req, res) => {
   }
 }
 
-// Create a new buy (buys/add)
+// Create a new buy (buys/add) and set car status to sold
 
 export const createBuy = async (req, res) => {
   try {

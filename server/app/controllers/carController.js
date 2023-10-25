@@ -78,7 +78,7 @@ export const createCar = async (req, res) => {
   }
 }
 
-// Obtain all cars with their corresponding images
+// Obtain all available cars with their corresponding images
 
 export const getAvailableCarsWithImages = async (req, res) => {
   try{
@@ -106,7 +106,7 @@ export const getAvailableCarsWithImages = async (req, res) => {
 
 // Obtain available cars with id whit images
 
-export const getAvailableCarsWithImagesID = async (req, res) => {
+export const getCarsWithImagesbyID = async (req, res) => {
   try {
     const carID = req.params.carID;
     const car = await Car.findByPk(carID);

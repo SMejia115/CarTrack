@@ -151,3 +151,23 @@ export const getCarsWithImagesbyID = async (req, res) => {
   }
 }
 
+// Modify car
+
+export const modifyCar = async (req, res) => {
+  try {
+    const carID = req.params.carID;
+    const car = await Car.findByPk(carID);
+
+    if (!car) {
+      return res.status(404).json({message: 'Car not found'})
+    }
+
+    await Car.update(req.body, {
+      where: { carID },
+    });
+
+    res.status(200).json({message: 'Car updated successfully'});
+  } catch (error) {
+    res.status(400).json({message: 'Error updating car'});
+  }
+}

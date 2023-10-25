@@ -136,6 +136,11 @@ router.get('/available/cars/images', carController.getAvailableCarsWithImages);
 
 router.post('/cars', carController.createCar);
 
+// PUT
+
+// Update car by ID
+
+router.put('/modify/cars/:carID', carController.modifyCar);
 
 // --------------------- C A R S   I M G S --------------------- //
 

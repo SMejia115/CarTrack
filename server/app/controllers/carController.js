@@ -17,6 +17,22 @@ export const getCars = async (req, res) => {
   }
 }
 
+// Obtain car by license plate
+
+export const getCarByLicensePlate = async (req, res) => {
+  try {
+    const car = await Car.findAll({ where: { licensePlate: req.params.licensePlate } });
+
+    if (car.length == 0) {
+      return res.status(404).json({message: 'Car not found'})
+    }
+
+    res.status(200).json(car);
+  } catch (error) {
+    res.status(400).json({message: 'Error getting car'});
+  }
+}
+
 // Obtain car by ID
 
 export const getCarByID = async (req, res) => {
@@ -67,16 +83,30 @@ export const getSoldCars = async (req, res) => {
 }
 
 // Create a new car
+// export const createCar = async (req, res) => {
+//   try {
+//     const car = req.body;
+//     await Car.create(car);
+//     res.status(201).json({message: 'Car created successfully'});
+
+//   } catch (error) {
+//     res.status(400).json({message: 'Error creating car'+ error});
+//   }
+// }
+
+// Create a new car (cars/add) and set car status to available
+
 export const createCar = async (req, res) => {
   try {
-    const car = req.body;
-    await Car.create(car);
-    res.status(201).json({message: 'Car created successfully'});
+    const car = await Car.create(req.body);
 
+    res.status(200).json(car);
   } catch (error) {
-    res.status(400).json({message: 'Error creating car'+ error});
+    res.status(400).json({ message: 'Error creating car', error });
+    console.log('Error creating car:', error);
   }
 }
+
 
 // Obtain all available cars with their corresponding images
 

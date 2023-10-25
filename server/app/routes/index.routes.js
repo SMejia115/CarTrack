@@ -122,6 +122,10 @@ router.get('/cars', carController.getCars);
 // Obtain car by ID
 router.get('/cars/:carID', carController.getCarByID);
 
+// Obtain car by license plate
+
+router.get('/cars/licensePlate/:licensePlate', carController.getCarByLicensePlate);
+
 // Obtain sold cars
 router.get('/sell/cars', carController.getSoldCars);
 
@@ -145,9 +149,13 @@ router.post('/cars', carController.createCar);
 
 // POST
 
-// Create a new car image
+// Create a new car image by carID
 
 router.post('/image/add/:carID', upload.single('image'), carImagesController.createCarImage);
+
+// Create a new car image (productImages/add/:licensePlate) by licensePlate
+
+router.post('/image/add/licensePlate/:licensePlate', upload.single('image'), carImagesController.createCarImageByLicensePlate);
 
 // GET
 

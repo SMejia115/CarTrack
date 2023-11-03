@@ -6,7 +6,7 @@ export const getBuys = async (req, res) => {
   try {
     const buys = await Buy.findAll();
 
-    if (buys.length == 0) {
+    if (buys.length == 0) { 
       return res.status(404).json({message: 'No buys found'})
     }
 
